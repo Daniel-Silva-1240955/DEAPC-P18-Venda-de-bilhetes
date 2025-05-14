@@ -6,3 +6,5 @@ Teste Daniel
 Teste Rodrigo
 
 Teste Miguel
+
+Teste Daniel Auto-Credentials
