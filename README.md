@@ -8,3 +8,5 @@ Teste Rodrigo
 Teste Miguel
 
 Teste Daniel Auto-Credentials
+
+Teste Rodrigo credenciais automaticas
