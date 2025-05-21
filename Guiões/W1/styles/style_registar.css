@@ -1,0 +1,70 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:greenyellow;
+}
+
+input
+{
+    padding: 15px;
+    border: none;
+    margin: 3%;
+}
+
+div
+{
+    background-color: rgba(0, 0, 0, 0.836);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    border-radius: 8%;
+    color: white;
+    margin-right: 5%;
+}
+
+.Registar
+{
+    position: absolute;
+    color: #000000;
+    margin-top: 0%;    
+    background-color:greenyellow;
+    border: 0%;
+    padding: 10px;
+    width: 25px;
+    text-decoration: none;
+    margin-top: 10%;    
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Registar:hover
+{
+    background-color: #5ac75a;
+}
+
+.data_validade
+{
+    position: absolute;
+    width: 100px;
+}
+
+.cvv
+{
+    width: 25px;
+}
+
+.voltar
+{
+    background-color: #000000;
+    border-radius: 35%;
+    border: none;
+    color:greenyellow;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}

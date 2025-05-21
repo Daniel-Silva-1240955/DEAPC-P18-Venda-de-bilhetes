@@ -20,6 +20,7 @@ input
 {
     padding: 15px;
     border: none;
+    margin: 3%;
 }
 
 button
@@ -30,6 +31,7 @@ button
     width: 80%;
     margin: 10%;    
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover
@@ -37,7 +39,27 @@ button:hover
     background-color:#5ac75a;
 }
 
-a
+.Registar
+{
+    color: #000000;
+    margin-top: 0%;    
+    background-color:greenyellow;
+    border: 0%;
+    padding: 10px;
+    padding-left: 26%;
+    padding-right: 26% ;
+    text-decoration: none;
+    margin: 10%;    
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Registar:hover
+{
+    background-color: #5ac75a;
+}
+
+.voltar
 {
     background-color: #000000;
     border-radius: 35%;
@@ -49,9 +71,4 @@ a
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-}
-
-h1
-{
-    text-align: center;
 }
