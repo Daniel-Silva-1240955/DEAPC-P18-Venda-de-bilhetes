@@ -1,13 +1,70 @@
 a
 {
-    background-color: #000000;
+    background-color: transparent;
     border-radius: 35%;
     border: none;
-    color:greenyellow;
-    padding: 20px;
+    color:rgb(119, 192, 10);
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     cursor: pointer;
+}
+
+.background-cinzaClaro
+{
+    background-color: rgb(183, 179, 187);
+    position: sticky;
+    margin-left: 5%;
+    margin-top: 10%;
+    margin-right: 25%;
+    margin-bottom: 10%;
+}
+
+.background-cinza
+{
+    background-color: rgb(86, 85, 87);
+    position: absolute;
+    margin-left: 75%;
+    margin-top: 0%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.table-header
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: black;
+    text-align:left;
+    
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 2px solid #bbb;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.vl {
+  border-left: 2px solid green;
+  height: 100px;
+  position:sticky;
+  margin-left: 10%;
+}
+
+.vertical-line{
+      width: 1px; /* Line width */
+      background-color: black; /* Line color */
+      height: 80%; /* Override in-line if you want specific height. */
+      margin-left:99px;
+
+}
+
+table, th, td {
+  border:1px solid black;
 }
