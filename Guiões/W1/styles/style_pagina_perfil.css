@@ -1,4 +1,4 @@
-a
+/*a
 {
     background-color: #000000;
     border-radius: 35%;
@@ -20,18 +20,23 @@ code {
   font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
   padding: 24px 15px;
   text-align: center;
+}*/
+
+p.one{
+  border-style: solid;
+  border-width: 5cm;
 }
-header,
-section,
-aside,
-footer {
-  margin: 0 1.5% 24px 1.5%;
-}
-section {
-  float: left;
-  width: 30%;
-}
-footer {
-  clear: both;
-  margin-bottom: 0;
+
+.button { 
+    background-color: greenyellow; 
+    border: none; 
+    color: black; 
+    padding: 15px 25px; 
+    border-radius: 15px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 20px; 
+    cursor: pointer; 
+    margin: auto;
 }
