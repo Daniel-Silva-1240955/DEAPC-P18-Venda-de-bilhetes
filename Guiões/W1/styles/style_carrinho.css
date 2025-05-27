@@ -1,70 +1,271 @@
-a
+/*Estilo geral do documento*/
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/*Aplicar cor e estilo de borda nas células*/
+th, td {
+  border: 0px solid rgb(35, 35, 189);
+}
+
+
+
+
+
+/*Responsável por alinhar tabela na página*/
+.alinhamento-tabela {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Fundo branco da tabela*/
+.background-branco-tabela
 {
-    background-color: transparent;
-    border-radius: 35%;
-    border: none;
-    color:rgb(119, 192, 10);
-    padding: 10px;
-    text-align: center;
+  background-color: rgb(255, 255, 255);
+  width: calc(100vw - 100px);   /* 10vw left + 10vw right */
+  height: calc(100vh - 100px);  /* 10vh top + 10vh bottom */
+  border: 0px solid transparent;
+  border-collapse:separate;
+  border-spacing: 0;
+  border-radius: 20px;
+  overflow: hidden; 
+
+}
+
+/*Fundo cinza da tabela*/
+.background-cinza-tabela
+{
+  background-color: rgb(194, 194, 194);
+  width: 25vw;
+  
+}
+
+
+/*Cabeçalho da Tabela*/
+.table-header {
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: bottom;
+  height: 7vh;
+}
+
+/*Cabeçalho da Tabela do lado esquerdo*/
+.table-header.left {
+  text-align: left;
+  font-size: 50px;
+  padding-left: 5%;
+  color: black;
+}
+
+/*Cabeçalho da Tabela no centro*/
+.table-header.center {
+  text-align: right;
+  font-size: 24px;
+  padding-right: 5%;
+  color: gray;
+}
+
+/*Cabeçalho da Tabela do lado direito*/
+.table-header.right {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+}
+
+/*Caixa de input do email*/
+.email-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vw;
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.email-box label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.email-box input[type="email"] {
+  width: 15vw;
+  height: 5vh;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.email-box input[type="email"]:focus {
+  border-color: rgb(13, 14, 13);
+}
+
+.total-box {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  gap: 30px;
+  justify-content: center;  /* Align total text horizontally */
+  margin-bottom: 20px;
+}
+
+/*Classe genérica de um botão*/
+.botao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  height: 8vh;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  
+}
+
+
+/*Estilo do botão para voltar*/
+.botao.back {
+  color: rgb(100, 100, 100);   
+  background-color: transparent;
+  text-decoration: none;
+  width: 20vw;
+  transition: 
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    text-decoration 0.3s ease;
+}
+
+/*Ativa quando se coloca o rato em cima do botão*/
+.botao.back:hover {
+  text-shadow: #000000;
+  transform: scale(1.05);
+  text-decoration: underline; /*Underline text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /*Shadow effect */
+}
+
+/*Estilo do botão de pagamento*/
+.botao.pagar
+{
+    color: white;   
+    background-color:black;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
     cursor: pointer;
-}
-
-.background-cinzaClaro
-{
-    background-color: rgb(183, 179, 187);
-    position: sticky;
-    margin-left: 5%;
-    margin-top: 10%;
-    margin-right: 25%;
-    margin-bottom: 10%;
-}
-
-.background-cinza
-{
-    background-color: rgb(86, 85, 87);
-    position: absolute;
-    margin-left: 75%;
-    margin-top: 0%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-}
-
-.table-header
-{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    color: black;
-    text-align:left;
+    width: 15vw;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     
 }
-
-/* Solid border */
-hr.solid {
-  border-top: 2px solid #bbb;
-  margin-left: 5%;
-  margin-right: 5%;
+/*Ativa quando se coloca o rato em cima do botão*/
+.botao.pagar:hover {
+  background-color: #333;
+  transform: scale(1.05);
 }
 
-.vl {
-  border-left: 2px solid green;
-  height: 100px;
-  position:sticky;
-  margin-left: 10%;
+/*Última row da tabela*/
+.table-footer
+{
+  height: 10vh;
 }
 
-.vertical-line{
-      width: 1px; /* Line width */
-      background-color: black; /* Line color */
-      height: 80%; /* Override in-line if you want specific height. */
-      margin-left:99px;
-
+/*Usado para alinhar objetos em divs nas células*/
+.cell 
+{
+  display: flex;
+}
+.cell.left
+{
+  justify-content: left;
+  align-items: left;
+} 
+.cell.center
+{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cell.right
+{
+  justify-content: right;
+  align-items: right;
 }
 
-table, th, td {
-  border:1px solid black;
+
+/*Aplicar arredondamento de cantos pois da forma que estou a afzer é mais complicado*/
+.background-branco-tabela tr:first-child th:first-child {
+  border-top-left-radius: 20px;
+}
+.background-branco-tabela tr:first-child th:last-child {
+  border-top-right-radius: 20px;
+}
+.background-branco-tabela tr:last-child td:first-child {
+  border-bottom-left-radius: 20px;
+}
+.background-branco-tabela tr:last-child td:last-child {
+  border-bottom-right-radius: 20px;
+}
+
+
+
+
+
+
+
+/* Fixed dimensions for the table cell that holds the products */
+.product-cell {
+    /*height: 50vh;     /* Set a fixed height for the cell */
+    padding: 0;       /* Ensure no extra padding is applied */
+    overflow: hidden; /* Hide anything that exceeds the boundaries of the cell */
+    height: 100%;             /* Ensure it takes full height of the cell */
+
+  }
+
+/* Wrapper to center the scrollable content inside the product-cell */
+.scrollable-wrapper {
+    display: flex;              /* Enable flexbox to center the scrollable-products */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    width: 100%;                /* Ensure it takes full width of the parent cell */
+    height: 100%;               /* Ensure it takes full height of the parent cell */
+}
+
+/* Add some styles for the scrollable product list */
+.scrollable-products {
+    display: flex;
+    flex-direction: column;
+
+    height: 60vh;
+    width: 90%;
+    overflow-y: auto;   /* Add vertical scrolling */
+    gap: 50px;          /* Add some gap between product items */
+    padding: 10px;
+    border: 0px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Style for individual product items */
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;  /* Minimum height for each product item */
+    font-size: 30px;
+    background-color: transparent;
+    border-bottom: 2px solid #ccc;  /* Add a line between products (light grey) */
+    padding: 30px;
+    margin-bottom: 20px; /* Optional: add some spacing between products */
+}
+
+.product-item span {
+    margin-right: 50px;
+    font-weight: bold;
 }

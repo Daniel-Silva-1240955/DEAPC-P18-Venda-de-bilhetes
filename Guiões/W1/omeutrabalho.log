@@ -1,0 +1,134 @@
+commit a04a43a271cb5202d84fafab91594da855d4da27
+Merge: 06f2444 a9788e2
+Author: rodrigomoura1 <rodrigomoura1705@gmail.com>
+Date:   Wed May 21 13:56:42 2025 +0100
+
+    Merge branch 'main' of https://github.com/Daniel-SIlva-1240955/DEAPC-P18-Venda-de-bilhetes
+
+commit 06f2444496184c60a02247dcd77ca8fef52ab1e1
+Author: rodrigomoura1 <rodrigomoura1705@gmail.com>
+Date:   Wed May 21 13:54:19 2025 +0100
+
+    Trabalho Rodrigo guião W1
+
+commit a9788e2fe2a413acc8d32dab78f4ec7fa829820b
+Merge: 20a7a1d 0d34a2f
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 21 13:52:57 2025 +0100
+
+    Merge branch 'main' of https://github.com/Daniel-Silva-1240955/DEAPC-P18-Venda-de-bilhetes into main
+
+commit 20a7a1dd888a524c85d35ee501d9ce86235fb5e5
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 21 13:52:13 2025 +0100
+
+    Trabalho Daniel guião W1
+
+commit 0d34a2f1cb4f360e110f1f6f7421b6a2e9cd8171
+Author: miguel.silva.145 <mmsilva145@gmail.com>
+Date:   Wed May 21 13:51:18 2025 +0100
+
+    Trabalho Miguel guião W1
+
+commit daed5b14a4094b1a3facad6cfb83927a94fd7b72
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 21 12:01:39 2025 +0100
+
+    Reorganização do repositório
+
+commit d51d07ec8f1a05cbdfcd6db8c5ca901ca2df1888
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 21 11:54:48 2025 +0100
+
+    Guião W1 Pergunta 1
+
+commit f0d070f1396b3e6a24479069885f194f8e807a4a
+Author: miguel.silva.145 <mmsilva145@gmail.com>
+Date:   Wed May 21 11:43:51 2025 +0100
+
+    Inserção páginas de exemplo Miguel
+
+commit ce0df1ccc00618821dcca6c5969245252fa12a08
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 21 11:37:00 2025 +0100
+
+    Pasta adicionada
+
+commit 42ebc09927cf6ca8676b9289bf00dacc3839adb8
+Author: Daniel-Silva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 13:52:09 2025 +0100
+
+    Add files via upload
+
+commit 5e445119a314e6802ac909ecffe728d20f44edb4
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 13:43:55 2025 +0100
+
+    Finalização do README.md para o Guião W0
+
+commit 142efbc3fe3dbe97f15d1178271fc8a7cdb15285
+Merge: 1226b61 9b699ab
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 12:33:47 2025 +0100
+
+    Merge branch 'main' of https://github.com/Daniel-Silva-1240955/DEAPC-P18-Venda-de-bilhetes into main
+
+commit 1226b61db762b5770b34e01f0defb6cfa8afc31a
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 12:33:31 2025 +0100
+
+    Submissão Guião W0
+
+commit 9b699ab9ec3c7980edf4c84908dd74322d0c3f7e
+Author: miguel.silva.145 <mmsilva145@gmail.com>
+Date:   Wed May 14 12:30:20 2025 +0100
+
+    Teste credenciais automaticas Miguel
+
+commit 89cdbd92871735b702bd78773e9f006c2a892e9f
+Author: rodrigomoura <rodrigomoura1705@gmail.com>
+Date:   Wed May 14 12:27:29 2025 +0100
+
+    Teste de credenciais automaticas
+
+commit f4708624ac7c0fffde81ff03bf3192c0e1bbdaa0
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 12:24:33 2025 +0100
+
+    Commit com credenciais automáticas
+
+commit a1d8ccda716d472a45fa94090a1f7ddf1cab7b66
+Author: miguel.silva.145 <mmsilva145@gmail.com>
+Date:   Wed May 14 12:18:14 2025 +0100
+
+    Teste push Miguel
+
+commit 811b1e0d1d937bee24eea03091ed6d46d458e15c
+Author: rodrigomoura <rodrigomoura1705@gmail.com>
+Date:   Wed May 14 12:15:53 2025 +0100
+
+    Teste push Rodrigo 2
+
+commit 1deb12cf84e074d988d1693adc4963087f05b7bf
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 12:08:53 2025 +0100
+
+    Teste push local Daniel
+
+commit 7ed30777c0f2be4feefa333c37bdddfc09ee5aca
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 11:47:02 2025 +0100
+
+    Update README.md
+
+commit cba143b6c8ea81cbbe56d23d91c4df880724bbc2
+Author: rodrigofmoura1 <1240964@isep.ipp.pt>
+Date:   Wed May 14 11:46:07 2025 +0100
+
+    Update README.md
+
+commit 4146dcfe95bf700de6c3a9c02589c736fea25cd4
+Author: Daniel-SIlva-1240955 <1240955@isep.ipp.pt>
+Date:   Wed May 14 11:42:44 2025 +0100
+
+    Initial commit
