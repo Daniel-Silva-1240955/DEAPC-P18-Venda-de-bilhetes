@@ -123,7 +123,7 @@ th, td {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 24px;
   height: 8vh;
   border: none;
   border-radius: 20px;
@@ -137,12 +137,12 @@ th, td {
   color: rgb(100, 100, 100);   
   background-color: transparent;
   text-decoration: none;
-  width: 20vw;
+  width: 25vw;
   transition: 
-    background-color 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease,
-    text-decoration 0.3s ease;
+  background-color 0.3s ease,
+  transform 0.2s ease,
+  box-shadow 0.3s ease,
+  text-decoration 0.3s ease;
 }
 
 /*Ativa quando se coloca o rato em cima do botão*/
