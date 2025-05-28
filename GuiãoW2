@@ -1,0 +1,61 @@
+W2
+3a)
+CLI02 - Ler informação sobre início de sessão e decidir se pode prosseguir
+Armazenar informação sobre quantidade e tipo de bilhete
+
+CLI03 - Ler informação sobre início de sessão e decidir se pode prosseguir
+Ler informação do carrinho para mostrar bilhetes e quantidade adicionados
+Quando pagar, adiciona os bilhetes ao histórico do cliente
+
+CLI04 - Ler informação sobre início de sessão e decidir se pode prosseguir
+Ler informação sobre início de sessão e mostrar os dados da conta
+
+
+ADM02 - Ler informação sobre início de sessão e decidir se pode prosseguir como admin
+Ler informação sobre as propriedades do bilhete
+
+ADM03 - Ler informação sobre início de sessão e decidir se pode prosseguir como admin
+Armazenar informação sobre o bilhete a adicionar
+
+ADM04 - Ler informação sobre início de sessão e decidir se pode prosseguir
+Ler informação sobre início de sessão e mostrar os dados da conta
+
+3b)
+Tabelas:
+dados_cliente
+	tipo (0-2)
+	nome (text)
+	email (text)
+	palavra-passe (text)
+	num cc (num)
+	validade cc (text)
+	cvv cc (num)
+
+dados_bilhetes
+	id (num associado ao bilhete)
+	nome do evento
+	local
+	data
+	preço
+	limite_bilhetes
+	bilhetes_disponiveis
+
+carrinho
+	email (para associar os bilhetes à conta)
+	bilhetes_adicionados (array com os ids dos vários bilhetes selecionados)
+	quantidades (array com as quantidades de cada id, sequencialmente)
+	preço_total (soma de todos os bilhetes)
+	email_compra (email para onde serão enviados os bilhetes digitais)
+
+historico_compras
+	email (para procura de bilhetes)
+	bilhetes_adicionados (array com os ids dos vários bilhetes já comprados)
+
+	
+
+CLI02 - Aceder a dados_cliente e verificar se email e palavra-passe correspondem na base de dados
+Aceder a carrinho e verificar se a entrada com o email registado existe, se não, cria uma entrada
+Adicionar os bilhetes selecionados
+	
+	
+
