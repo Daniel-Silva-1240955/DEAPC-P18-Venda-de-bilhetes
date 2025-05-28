@@ -10,6 +10,7 @@ Quando pagar, adiciona os bilhetes ao histórico do cliente
 CLI04 - Ler informação sobre início de sessão e decidir se pode prosseguir
 Ler informação sobre início de sessão e mostrar os dados da conta
 
+ADM01 - Ler informação da tabela dados_bilhetes e listar todos os bilhetes na tabela
 
 ADM02 - Ler informação sobre início de sessão e decidir se pode prosseguir como admin
 Ler informação sobre as propriedades do bilhete
@@ -55,7 +56,15 @@ historico_compras
 
 CLI02 - Aceder a dados_cliente e verificar se email e palavra-passe correspondem na base de dados
 Aceder a carrinho e verificar se a entrada com o email registado existe, se não, cria uma entrada
-Adicionar os bilhetes selecionados
+Adiciona os ids dos bilhetes selecionados e as respetivas quantidades
+
+CLI03 - Aceder à tabela dados_cliente e verificar se o utilizador está registado (comparar variável local de email com a tabela dados_cliente e verificar a existencia)
+Aceder à página de carrinho e procurar na tabela carrinho com o email associado à variável local para preencher os dados respetivos
+
+CLI04 - Aceder à tabela dados_cliente e verificar se o utilizador está registado (comparar variável local de email com a tabela dados_cliente e verificar a existencia)
+Aceder à página de perfil e procurar na tabela dados_cliente com o email associado à variável local para preencher os dados respetivos
 	
-	
+ADM01/CLI01/VIS01 - Aceder à tabela dados_bilhetes e listar todos os bilhetes contidos
+
+ADM02 - 
 
