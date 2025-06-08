@@ -1,0 +1,172 @@
+body 
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+  background-color: #ecf0f1;
+  margin: 0;
+  padding: 0;
+}
+
+.fundo
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    border-radius: 8%;
+}
+
+input 
+{
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  margin: 10px auto;
+  width: 65%; /* ocupa mais espaço horizontal */
+  font-size: 16px;
+  display: block; /* garante que ficam numa nova linha */
+}
+
+
+h1 
+{
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+button
+{
+    background-color:greenyellow;
+    border: none;
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5%;
+}
+
+button:hover
+{
+    background-color:#5ac75a;
+}
+
+.conteudo
+{
+    background-color: rgba(0, 0, 0, 0.836);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 10%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border-radius: 8%;
+    color: white;
+    text-align: center;
+    width: 300px;
+}
+
+.Registar
+{
+    color: #000000;   
+    background-color:greenyellow;
+    text-decoration: none;
+    margin-top: 10%;    
+    margin-bottom: 15%;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin: 10%;    
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Registar:hover
+{
+    background-color: #5ac75a;
+}
+
+.voltar
+{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    margin: 1rem 0;
+    padding: 0.75rem 1.2rem;
+    background-color: #34495e;
+    border-radius: 8px;
+    width: 10%;
+    text-align: center;
+    transition: 0.2s;
+    font-size: 1rem;
+    align-self: center;
+}
+
+.voltar:hover {
+  background-color: #3d566e;
+}
+
+.conteudo {
+  background-color: #2c3e50;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px; /* aumentada de 320px */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  /*Aproximar o conteúdo do funco da caixa*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* empurra o conteúdo para baixo */
+  height: 100%;
+  min-height: 300px; /* ou ajusta conforme o tamanho da caixa */
+  padding-bottom: 20px; /* espaço menor embaixo */
+}
+/* Mais espaço acima do input da palavra-passe */
+.conteudo input[type="password"] {
+  margin-bottom: 20px;
+}
+
+/* Ajustar o container .fundo para manter centralizado */
+.fundo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 80px;
+  border-radius: 8%;
+  height: auto;
+  max-height: 90vh;
+}
+
+button.iniciar_sessao,
+.Registar {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 10px auto;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #34495e;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+button.iniciar_sessao:hover,
+.Registar:hover {
+  background-color: #3d566e;
+}
+
