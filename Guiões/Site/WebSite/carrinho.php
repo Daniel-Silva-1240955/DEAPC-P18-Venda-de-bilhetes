@@ -148,14 +148,37 @@ try {
 function validarEmail() {
     const emailInput = document.getElementById('email');
     const emailHidden = document.getElementById('email-hidden');
+    const email = emailInput.value.trim();
 
-    if (emailInput.value.trim() === '') {
+    //Verifica se o email não está vazio
+    if (email === '') {
         alert('Por favor, introduza um email para prosseguir.');
         return false; // Impede o submit
     }
 
+    // Expressão regular simples para validar email
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    /*
+    ^[^\s@]+ → começa com pelo menos um caracter que não é espaço nem @
+
+    @ → tem de conter um @
+
+    [^\s@]+ → depois do @, pelo menos um caracter que não é espaço nem @
+
+    \. → tem de conter um ponto . (o \ é necessário para o ponto ser entendido como Escape Caracter)
+
+    [^\s@]+$ → pelo menos um caracter após o ponto, até ao fim da string
+    */
+
+    //Se o email não é válido
+    if (!emailValido.test(email)) {
+        alert('Por favor, introduza um email válido.');
+        return false; // Impede o submit
+    }
+
     // Guarda o email no input hidden antes de submeter
-    emailHidden.value = emailInput.value;
+    emailHidden.value = email;
     return true; // Permite o submit
 }
 </script>

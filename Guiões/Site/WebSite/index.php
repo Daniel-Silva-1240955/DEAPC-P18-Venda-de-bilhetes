@@ -66,7 +66,7 @@ $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
     <a href="iniciar_sessao.php">🔐 Iniciar Sessão</a>
 
     <?php if ($user_id == 1): ?>
-        <a id="botao_admin" href="admin_page.php">Menu Admin</a>
+        <a id="botao_admin" href="php_scripts/admin_page.php">🛠️ Menu Admin</a>
     <?php endif; ?>
 </div>
 
