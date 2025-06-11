@@ -33,35 +33,58 @@ try {
 </head>
 
 <body>
-<div class="alinhamento-tabela">
-    <form action="php_scripts/pagar_compra.php" method="POST">
+    <!-- Pop-up Pagar Compra  Carrinho Vazio -->
+    <?php if (isset($_GET['success']) && $_GET['success'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro! Carrinho Vazio</h2>
+                <a href="index.php">Voltar à Página Inicial</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- Pop-up Pagar Compra sucesso -->
+    <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Compra Efetuada com Sucesso!</h2>
+                <a href="index.php">Voltar à Página Inicial</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up Bilhete Removido -->
+    <?php if (isset($_GET['removed']) && $_GET['removed'] == '1'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Bilhete removido com Sucesso!</h2>
+                <a href="carrinho.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+
+    <div class="alinhamento-tabela">
         <table class="background-branco-tabela">
             <colgroup>
                 <col span="2">
                 <col span="1" class="background-cinza-tabela">
             </colgroup>
-
             <tr>
                 <th class="table-header left">Carrinho</th>
                 <th class="table-header center"><?php echo $total_items; ?> items</th>
                 <th class="table-header right">Checkout</th>
             </tr>
-
             <tr>
                 <td colspan="2" class="product-cell">
                     <div class="scrollable-wrapper">
                         <div class="scrollable-products">
                             <?php
                             $stmt = $db->prepare(
-                                'SELECT l.nome, l.preco, c.quantidade
-                                FROM carrinhos c
-                                JOIN lista_bilhetes l ON c.id_bilhete = l.id
-                                WHERE c.user_id = :user_id'
+                                'SELECT l.nome, l.preco, c.quantidade, c.id_bilhete FROM carrinhos c
+                                JOIN lista_bilhetes l ON c.id_bilhete = l.id WHERE c.user_id = :user_id'
                                 );
-
                             $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
                             $results = $stmt->execute();
-
                             $total_price = 0;
                             while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
                                 $total_price += $row['preco'] * $row['quantidade'];
@@ -71,13 +94,18 @@ try {
                                 echo '<span class="price">€' . number_format($row['preco'], 2) . '</span>';
                                 echo '<span class="quantity">x' . intval($row['quantidade']) . '</span>';
                                 echo '</span>';
+                                
+                                // Botão eliminar
+                                echo '<form action="php_scripts/remover_carrinho.php" method="POST" style="display:inline;">';
+                                echo '<input type="hidden" name="id_bilhete" value="' . $row['id_bilhete'] . '">';
+                                echo '<button type="submit" class="botao-remover">Eliminar</button>';
+                                echo '</form>';
                                 echo '</div>';
                             }
                             ?>
                         </div>
                     </div>
                 </td>
-
                 <td>
                     <div class="cell center">
                         <div class="email-box">
@@ -91,7 +119,6 @@ try {
                     </div>
                 </td>
             </tr>
-
             <tr class="table-footer">
                 <td>
                     <div class="cell left">
@@ -101,13 +128,34 @@ try {
                 <td></td>
                 <td>
                     <div class="cell center">
-                        <button type="submit" class="botao pagar">Pagar</button>
+                        <!-- <button type="submit" class="botao pagar">Pagar</button>
+                        Formulário de pagamento separado -->
+                        <form id="form-pagar" action="php_scripts/pagar_compra.php" method="POST" onsubmit="return validarEmail()">
+                            <!-- Este input vai receber o email via JS -->
+                            <input type="hidden" id="email-hidden" name="email">
+                            <button type="submit" class="botao pagar">Pagar</button>
+                        </form>
                     </div>
                 </td>
             </tr>
-
         </table>
-    </form>
-</div>
+
+    </div>
 </body>
 </html>
+
+<script>
+function validarEmail() {
+    const emailInput = document.getElementById('email');
+    const emailHidden = document.getElementById('email-hidden');
+
+    if (emailInput.value.trim() === '') {
+        alert('Por favor, introduza um email para prosseguir.');
+        return false; // Impede o submit
+    }
+
+    // Guarda o email no input hidden antes de submeter
+    emailHidden.value = emailInput.value;
+    return true; // Permite o submit
+}
+</script>
