@@ -74,6 +74,6 @@ $delete = $db->prepare("DELETE FROM carrinhos WHERE user_id = :user_id");
 $delete->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $delete->execute();
 
-header("Location: ../index.php");
+header("Location: ../carrinho.php?success=1");
 exit;
 ?>
