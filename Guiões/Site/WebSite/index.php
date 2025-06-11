@@ -64,6 +64,10 @@ $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
     <a href="carrinho.php">🛒 Carrinho</a> 
     <a href="pagina_perfil.php">👤 Perfil</a>
     <a href="iniciar_sessao.php">🔐 Iniciar Sessão</a>
+
+    <?php if ($user_id == 1): ?>
+        <a id="botao_admin" href="admin_page.php">Menu Admin</a>
+    <?php endif; ?>
 </div>
 
 </body>
