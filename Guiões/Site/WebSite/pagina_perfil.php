@@ -50,6 +50,35 @@ try {
 </head>
 <body>
 
+<?php if (isset($_GET['editar']) && $_GET['editar'] == '1'): ?>
+<div id="popup" class="popup active">
+    <div class="popup-content">
+        <h2>Editar Cartão de Crédito</h2>
+        <form method="POST" action="atualizar_dados.php">
+            <div class="form-group">
+                <label for="num_cc">Número do Cartão</label>
+                <input type="text" id="num_cc" name="num_cc" value="<?= htmlspecialchars($num_cc) ?>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="val_cc">Data de Validade (MM/AA)</label>
+                <input type="text" id="val_cc" name="val_cc" value="<?= htmlspecialchars($val_cc) ?>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cvv_cc">CVV</label>
+                <input type="text" id="cvv_cc" name="cvv_cc" value="<?= htmlspecialchars($cvv_cc) ?>" required>
+            </div>
+            
+            <div class="popup-buttons">
+                <button type="submit">Salvar</button>
+                <a href="pagina_perfil.php" class="cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+
 <div class="sidebar">
   <h2>Perfil</h2>
 
@@ -77,6 +106,8 @@ try {
     <label>CVV</label>
     <p><?= htmlspecialchars($cvv_cc) ?></p>
   </div>
+
+  <a href="pagina_perfil.php?editar=1" class="editar_dados"> Editar dados</a>
   <a href="index.php" class="voltar">⬅ Voltar</a>
 </div>
 
@@ -101,6 +132,15 @@ try {
     <?php endforeach; ?>
   <?php endif; ?>
 </div>
-
+<script>
+document.getElementById('popup')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        window.location.href = 'pagina_perfil.php';
+    }
+});
+<?php if (isset($_GET['success'])): ?>
+    alert('Dados atualizados com sucesso!');
+<?php endif; ?>
+</script>
 </body>
 </html>

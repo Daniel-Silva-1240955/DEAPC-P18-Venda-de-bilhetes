@@ -1,14 +1,13 @@
 <?php
 session_start();
-/*
+
 // Verifica se o utilizador tem um user_id atribuído
 // Se não, redireciona direto para a página de login
-if (!isset($_SESSION['user_id'])) {
+/*if (!isset($_SESSION['user_id'])) {
     header("Location: iniciar_sessao.php");
     exit;
-}
-*/
-$user_id = $_SESSION['user_id'];
+}*/
+//$user_id = $_SESSION['user_id'];
 
 $db = new SQLite3('../DataBase/venda_bilhetes.db');
 $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
