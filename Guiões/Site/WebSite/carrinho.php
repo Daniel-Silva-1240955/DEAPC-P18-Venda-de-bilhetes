@@ -33,7 +33,16 @@ try {
 </head>
 
 <body>
-    <!-- Pop-up Pagar Compra -->
+    <!-- Pop-up Pagar Compra  Carrinho Vazio -->
+    <?php if (isset($_GET['success']) && $_GET['success'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro! Carrinho Vazio</h2>
+                <a href="index.php">Voltar à Página Inicial</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- Pop-up Pagar Compra sucesso -->
     <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
         <div id="popup" class="popup">
             <div class="popup-content">
@@ -53,7 +62,7 @@ try {
         </div>
     <?php endif; ?>
 
-    
+
     <div class="alinhamento-tabela">
         <table class="background-branco-tabela">
             <colgroup>
