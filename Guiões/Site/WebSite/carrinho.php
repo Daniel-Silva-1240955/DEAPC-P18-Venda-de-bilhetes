@@ -19,6 +19,14 @@ try {
 
     $total_items = $row['total_items'] ?? 0;
 
+    // Vai buscar o email do utilizador
+    $stmt = $db->prepare('SELECT email FROM dados_cliente WHERE user_id = :user_id');
+    $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
+    $result = $stmt->execute();
+    $user_row = $result->fetchArray(SQLITE3_ASSOC);
+
+    $email_user = $user_row['email'] ?? '';
+
 } catch (Exception $e) {
     $total_items = 0;
 }
@@ -110,7 +118,8 @@ try {
                     <div class="cell center">
                         <div class="email-box">
                             <label for="email">Receba os seus bilhetes por email:</label>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <!--<input type="email" id="email" name="email" placeholder="Email" required>-->
+                            <input type="email" id="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($email_user); ?>" required>
                         </div>
                         <div class="total-box">
                             <span>Total:</span>
