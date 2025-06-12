@@ -1,5 +1,5 @@
 <?php
-$db = new SQLite3('../../DataBase/venda_bilhetes.db');
+$db = new SQLite3('../DataBase/venda_bilhetes.db');
 
 // Função: Adicionar Bilhete
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar'])) {
@@ -71,32 +71,39 @@ while ($row = $resultUsers->fetchArray(SQLITE3_ASSOC)) {
             background-color: #f4f4f4;
             padding: 20px;
         }
+
         h1, h2 {
             text-align: center;
             margin-top: 50px;
             color: #333;
         }
+
         section {
             margin-bottom: 60px;
         }
+
         table {
             width: 95%;
             margin: 20px auto;
             border-collapse: collapse;
             background-color: white;
         }
+
         th, td {
             border: 1px solid #ccc;
             padding: 10px;
             text-align: center;
         }
+
         th {
             background-color: #eee;
         }
+
         form {
             margin: 20px auto;
             text-align: center;
         }
+
         input[type="text"], input[type="number"], input[type="date"] {
             margin: 0.3rem;
             padding: 0.5rem;
@@ -104,6 +111,7 @@ while ($row = $resultUsers->fetchArray(SQLITE3_ASSOC)) {
             border-radius: 4px;
             width: 200px;
         }
+
         button {
             padding: 0.5rem 1rem;
             color: white;
@@ -111,17 +119,65 @@ while ($row = $resultUsers->fetchArray(SQLITE3_ASSOC)) {
             border-radius: 4px;
             cursor: pointer;
         }
-        button.add { background-color: #3498db; }
-        button.add:hover { background-color: #2980b9; }
-        button.remove { background-color: #e74c3c; }
-        button.remove:hover { background-color: #c0392b; }
-        a { padding: 5px 10px; background-color: #2ecc71; color: white; text-decoration: none; border-radius: 4px; }
-        a:hover { background-color: #27ae60; }
+
+        button.add { 
+            background-color: #3498db; 
+        }
+        button.add:hover { 
+            background-color: #2980b9; 
+        }
+
+        button.remove { 
+            background-color: #e74c3c;
+        }
+        button.remove:hover { 
+            background-color: #c0392b; 
+        }
+
+        a {
+            padding: 5px 10px;
+            background-color: #2ecc71;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        a:hover {
+            background-color: #27ae60; 
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .header .voltar {
+            position: absolute;
+            left: 0;
+            color: white;
+            text-decoration: none;
+            margin: 1rem 0;
+            padding: 0.75rem 1.2rem;
+            background-color: #34495e;
+            border-radius: 8px;
+            transition: 0.2s;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .header .voltar:hover {
+            background-color: #3d566e;
+        }
+
     </style>
 </head>
 <body>
 
-<h1>Painel de Administração</h1>
+    <div class="header">
+        <a href="index.php" class="voltar">⬅ Voltar</a>
+        <h1>Painel de Administração</h1>
+    </div>
 
 <!-- Gestão de Bilhetes -->
 <section id="gestao-bilhetes">

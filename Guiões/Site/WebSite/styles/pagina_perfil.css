@@ -1,72 +1,3 @@
-/*.button { 
-    background-color: greenyellow; 
-    border: none; 
-    color: black; 
-    padding: 15px 25px; 
-    border-radius: 15px;
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-size: 20px; 
-    cursor: pointer; 
-    margin-top: 30px;
-    margin-left: 35px;
-    margin-right: 5px;
-}
-
-body {
-    background-color: grey;
-} 
-
-.bloco {
-    display: flex;          
-    gap: 50px;            
-    align-items: flex-start;
-    margin-top: 50px;
-}
-
-.tabela {
-    flex: 1;
-    min-width: 300px; 
-    max-width: 500px; 
-    background-color: white;
-    margin-left: 150px;
-    margin-top: 60px;
-    border-radius: 5px;
-    height: 400px;
-}
-
-td, th {
-    text-align: left;
-    padding: 15px;
-}
-
-tr:nth-child(even) {
-    background-color: greenyellow;
-}
-
-.historicobilhetes {
-    flex: 1;
-    margin-right: 150px;
-    margin-top: 60px;
-    width: 400px;
-    border-radius: 5px;
-    padding-left: 15px;
-    background-color: white;
-    overflow-y: auto;
-    height: 400px;
-}
-
-img {
-    position: relative;
-    top: 16px; 
-    margin-left: 5px;
-    margin-right: 10px;
-}
-*/
-
-
-
 * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -111,22 +42,39 @@ img {
     margin: 0;
   }
 
-  .sidebar a {
-    color: white;
-    text-decoration: none;
-    margin: 1rem 0;
-    padding: 0.75rem 1.2rem;
-    background-color: #34495e;
-    border-radius: 8px;
-    width: 80%;
-    text-align: center;
-    transition: 0.2s;
-    font-size: 1rem;
-    align-self: center;
+
+  .edit-button {
+      display: block;
+      padding: 0.5rem 1rem;
+      background-color: #34495e;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      text-align: center;
+      margin-bottom: 0px; /* <- Adiciona espaçamento por baixo do botão Editar */
   }
 
-  .sidebar a:hover {
-    background-color: #3d566e;
+  .edit-button:hover {
+      background-color: #3d566e;
+  }
+
+  .back-button {
+      color: white;
+      text-decoration: none;
+      margin: 1rem 0;
+      padding: 0.75rem 1.2rem;
+      background-color: #34495e;
+      border-radius: 8px;
+      width: 80%; /* ajusta a largura para ficar consistente com o Editar */
+      text-align: center;
+      transition: 0.2s;
+      font-size: 1rem;
+      align-self: center;
+  }
+
+  .back-button:hover {
+      background-color: #3d566e;
   }
 
   .main {
@@ -169,4 +117,95 @@ img {
     color: #777;
     text-align: center;
     font-size: 18px;
+  }
+
+  /* Estilo geral */
+  .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+  }
+
+  .popup-content {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 400px;
+  }
+
+  .popup-content h2 {
+      margin-bottom: 20px;
+  }
+
+  /* Estilo dos inputs */
+  input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 10px auto;
+      width: 80%;
+      font-size: 16px;
+      display: block;
+  }
+
+  /* Container para os campos de validade e CVV */
+  .validadeCVV {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 10px auto;
+  }
+
+  .data_validade {
+      width: 70%;
+      margin: 0;
+  }
+
+  .cvv {
+      width: 35%;
+      margin: 0;
+  }
+
+  /* Botões */
+  .popup-buttons {
+      margin-top: 30px; /* Espaço extra acima dos botões */
+      display: flex;
+      justify-content: center;
+      gap: 15px; /* Espaço entre botões */
+  }
+
+  .popup-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #34495e;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+  }
+  button.popup-button {
+    all: unset; /* Limpa todos os estilos nativos do botão */
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #34495e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    font-size: 18px; /* Igual ao tamanho base do body */
+    font-family: inherit; /* Garante que usa a mesma fonte definida no * { } */
+    text-align: center;
+    display: inline-block;
+}
+
+  .popup-button:hover {
+      background-color: #3d566e;
   }
