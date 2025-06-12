@@ -7,7 +7,7 @@ session_start();
     header("Location: iniciar_sessao.php");
     exit;
 }*/
-//$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
 $db = new SQLite3('../DataBase/venda_bilhetes.db');
 $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
@@ -67,6 +67,7 @@ $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
     <?php if ($user_id == 1): ?>
         <a id="botao_admin" href="admin_page.php">🛠️ Menu Admin</a>
     <?php endif; ?>
+    
 </div>
 
 </body>
