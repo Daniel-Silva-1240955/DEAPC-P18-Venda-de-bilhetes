@@ -152,6 +152,15 @@ try {
     <?php endforeach; ?>
   <?php endif; ?>
 </div>
-
+<script>
+document.getElementById('popup')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        window.location.href = 'pagina_perfil.php';
+    }
+});
+<?php if (isset($_GET['success'])): ?>
+    alert('Dados atualizados com sucesso!');
+<?php endif; ?>
+</script>
 </body>
 </html>
