@@ -1,9 +1,10 @@
 <?php
 session_start();
-/*
-Fazer confirmação e redirecionar com popup a dar erro*/
+
+//Fazer confirmação e redirecionar com popup a dar erro
 if (!isset($_SESSION['user_id'])) {
-    die("Utilizador não autenticado. Por favor, inicie sessão.");
+    header('Location: index.php?auth=0');
+    //die("Utilizador não autenticado. Por favor, inicie sessão.");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -79,19 +80,21 @@ try {
             </form>
         </div>
     </div>
-<?php endif; ?>
+  <?php endif; ?>
 
   <!-- Pop-up Dados Editados -->
   <?php if (isset($_GET['editar']) && $_GET['editar'] == '2'): ?>
       <div id="popup" class="popup">
           <div class="popup-content">
+
             <?php if (isset($_GET['success']) && $_GET['success'] == '0'): ?>
               <h2>Erro ao Editar Dados</h2>
             <?php endif; ?>
             <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
               <h2>Dados editados com sucesso</h2>
             <?php endif; ?>
-              <a href="pagina_perfil.php" class="popup-button">Continuar</a>
+
+            <a href="pagina_perfil.php" class="popup-button">Continuar</a>
           </div>
       </div>
   <?php endif; ?>
@@ -126,9 +129,8 @@ try {
         <a href="pagina_perfil.php?editar=1" class="edit-button">📝 Editar</a>
     </div>
 
-    <!-- Bloco dos botões -->
-        
-        <a href="index.php" class="back-button">⬅ Voltar</a>
+    <!-- Bloco dos botões -->    
+    <a href="index.php" class="back-button">⬅ Voltar</a>
 </div>
 
 <div class="main">
@@ -152,15 +154,5 @@ try {
     <?php endforeach; ?>
   <?php endif; ?>
 </div>
-<script>
-document.getElementById('popup')?.addEventListener('click', function(e) {
-    if (e.target === this) {
-        window.location.href = 'pagina_perfil.php';
-    }
-});
-<?php if (isset($_GET['success'])): ?>
-    alert('Dados atualizados com sucesso!');
-<?php endif; ?>
-</script>
 </body>
 </html>

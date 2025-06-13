@@ -29,11 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $db->prepare('SELECT palavrapasse FROM dados_cliente WHERE user_id = :user_id');
     $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
     $result = $stmt->execute()->fetchArray(SQLITE3_ASSOC);
-    /*
-    echo "<pre>";
-    print_r($user_id);
-    echo "</pre>";
-    */
+
+    
     if (!$result) {
         // Se o utilizador não for encontrado, redirecionar
         header("Location: ../pagina_perfil.php?editar=2&success=0");

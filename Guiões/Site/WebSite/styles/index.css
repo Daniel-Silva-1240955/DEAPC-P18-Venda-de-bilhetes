@@ -91,3 +91,41 @@ button {
 button:hover {
     background-color: #3498db;
 }
+
+.popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content a {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #34495e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.popup-content a:hover {
+    background-color: #3d566e;
+}

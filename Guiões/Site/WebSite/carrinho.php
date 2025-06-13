@@ -4,7 +4,8 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     //Abre popup a dizer que não tem sessão iniciada
     //Carregar no botão faz redirect para a página de login
-    die("Utilizador não autenticado. Por favor, inicie sessão.");
+    header('Location: index.php?auth=0');
+    //die("Utilizador não autenticado. Por favor, inicie sessão.");
 }
 $user_id = $_SESSION['user_id'];
 

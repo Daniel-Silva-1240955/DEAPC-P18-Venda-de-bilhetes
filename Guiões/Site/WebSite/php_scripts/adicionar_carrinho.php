@@ -7,7 +7,7 @@ session_start();
 
 // Verifica se o utilizador está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../iniciar_sessao.php");
+    header('Location: ../index.php?auth=0');
     exit;
 }
 
@@ -50,12 +50,9 @@ $insert->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
 $insert->bindValue(':quantidade', $quantidade, SQLITE3_INTEGER);
 $insert->execute();
 
+//TODO: Adicionar funcionalidade de atualizar quantidade de item se este já se encontra no carrinho
 
-// Opcional: Atualizar o campo 'disponiveis' na tabela lista_bilhetes para refletir a reserva no carrinho, se desejado
-// Atenção: Essa lógica pode variar conforme o fluxo da sua aplicação.
-
-//Aqui adicionar popup na página principal para indicar que o item foi adicionado ao carrinho
-// Redireciona para a página principal ou para o carrinho
-header("Location: ../index.php");
+//Redireciona para a página principal com mensagem de confirmação
+header("Location: ../index.php?adicionado=1");
 exit;
 ?>

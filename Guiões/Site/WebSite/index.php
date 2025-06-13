@@ -23,6 +23,27 @@ $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
 </head>
 <body>
 
+    <!-- Pop-up Sem sessão iniciada -->
+    <?php if (isset($_GET['auth']) && $_GET['auth'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro!</h2>
+                <h2>Por favor inicie sessão</h2>
+                <a href="iniciar_sessao.php">Iniciar Sessão</a>
+                <a href="index.php">Cancelar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- Pop-up Bilhete adicionado ao carrinho -->
+    <?php if (isset($_GET['adicionado']) && $_GET['adicionado'] == '1'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Bilhete adicionado ao carrinho</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
 <div class="main-content">
     <h1>Bilheteira Online</h1>
     <table>
