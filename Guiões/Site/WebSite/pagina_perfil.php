@@ -51,20 +51,55 @@ try {
   <link rel="stylesheet" href="styles/pagina_perfil.css">
   <title>Perfil do Utilizador</title>
 </head>
+
+<script>
+function validacao() {
+  const password = document.getElementById('password').value;
+  const num_cc = document.querySelector('input[name="num_cc"]').value;
+  const cvv = document.querySelector('input[name="cvv_cc"]').value;
+
+  //Expressão regular para validar a password
+  const passwordValido = /^[0-9a-zA-Z$*&@#]{8,}$/;
+
+  //Expressão regular para validar o numero do cartao
+  const cartaoValido = /^\d{16}$/;
+
+  //Expressão regular para validar o cvv
+  const cvvValido = /^\d{3}$/;
+
+  if (!passwordValido.test(password)) {
+      alert("A palavra-passe deve ter pelo menos 8 caracteres");
+      return false;
+  }
+
+  if (!cartaoValido.test(num_cc)) {
+      alert("O número do cartão deve ter 16 dígitos.");
+      return false;
+  }
+
+  if (!cvvValido.test(cvv)) {
+      alert("O CVV deve ter 3 dígitos.");
+      return false;
+  }
+
+  return true; 
+}
+</script>
+
 <body>
   <!-- Pop-up Editar Dados -->
   <?php if (isset($_GET['editar']) && $_GET['editar'] == '1'): ?>
     <div id="popup" class="popup">
         <div class="popup-content">
             <h2>Editar Dados</h2>
-            <form action="php_scripts/edit_profile.php" method="POST">
+            <form action="php_scripts/edit_profile.php" method="POST" onsubmit="return validacao()">
                 <input name="palavrapasse" type="password" id="password" value="********" required>
 
                 <!-- Campo de email -->
                 <!--<input name="email" type="email" value="<?= htmlspecialchars($email); ?>" required> -->
 
                 <!-- Campo de número de cartão -->
-                <input name="num_cc" type="tel" maxlength="19" value="<?= htmlspecialchars($num_cc); ?>" required>
+                <input name="num_cc" type="tel" maxlength="16" value="<?= htmlspecialchars($num_cc); ?>" required>
 
                 <!-- Validade e CVV -->
                 <div class="validadeCVV">
