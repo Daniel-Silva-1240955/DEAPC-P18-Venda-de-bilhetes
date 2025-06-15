@@ -4,8 +4,8 @@ session_start();
 
 //Verifica se o utilizador tem sessão inciada (redundante)
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
+    header('Location: index.php?auth=0');
+    exit();
 }
 
 $db = new SQLite3('../../DataBase/venda_bilhetes.db');
@@ -40,6 +40,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     $morada = $bilhete_info['morada'];
     $dia = $bilhete_info['dia'];
     $preco = $bilhete_info['preco'];
+    //Falta implementar utilização de email para enviar confirmação de compra
 
     // Inserir no histórico
     $data_compra = date('Y-m-d H:i:s');
@@ -69,7 +70,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 //Simula um While Else
 if (!$row = $result->fetchArray(SQLITE3_ASSOC)) {
     header("Location: ../carrinho.php?success=0");
-    exit;
+    exit();
 }
 
 // Limpar o carrinho do utilizador
@@ -78,5 +79,5 @@ $delete->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $delete->execute();
 
 header("Location: ../carrinho.php?success=1");
-exit;
+exit();
 ?>

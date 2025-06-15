@@ -1,8 +1,13 @@
 <?php
+
+    //Adicionar Popups de Erros de Remoção do carrinho
+
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    die("Utilizador não autenticado.");
+    header('Location: index.php?auth=0');
+    exit();
 }
 
 if (isset($_POST['id_bilhete'])) {

@@ -1,4 +1,8 @@
 <?php
+
+    //Adicionar Popups de Erros de Início de sessão
+
+
 //Este código recebe os dados de login e tenta iniciar sessão
 //Dá erro se não for possível iniciar sessão
 session_start();

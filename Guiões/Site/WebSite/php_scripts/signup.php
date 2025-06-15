@@ -1,11 +1,21 @@
 <?php
+
+    //Adicionar Popups de Erros de Registo
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
-    $palavrapasse = trim($_POST['palavrapasse']);
+    $palavrapasse = trim($_POST['password']);
     $num_cc = intval($_POST['num_cc']);
     $validade_cc = trim($_POST['validade_cc']);
     $cvv_cc = intval($_POST['cvv_cc']);
+
+    /*
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+    */
 
     // Verificação básica
     if (empty($nome) || empty($email) || empty($palavrapasse) || empty($validade_cc)) {
@@ -23,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($res->fetchArray()) {
             //Introduzir popup na página anterior
             echo "⚠️ Este email já está registado.";
-            die('<br><a href="../registar.php">Ir para registo</a>');
+            die('<br><a href="../iniciar_sessao.php">Ir para login</a>');
         }
 
         // Hash da password

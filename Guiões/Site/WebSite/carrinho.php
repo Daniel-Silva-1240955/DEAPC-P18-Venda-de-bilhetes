@@ -6,6 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     //Carregar no botão faz redirect para a página de login
     header('Location: index.php?auth=0');
     //die("Utilizador não autenticado. Por favor, inicie sessão.");
+    exit();
 }
 $user_id = $_SESSION['user_id'];
 
@@ -39,6 +40,7 @@ try {
     <meta charset="UTF-8">
     <title>Carrinho</title>
     <link rel="stylesheet" href="styles/carrinho.css">
+    <script src="scripts/carrinho.js" defer></script>
 </head>
 
 <body>
@@ -140,7 +142,7 @@ try {
                     <div class="cell center">
                         <!-- <button type="submit" class="botao pagar">Pagar</button>
                         Formulário de pagamento separado -->
-                        <form id="form-pagar" action="php_scripts/pagar_compra.php" method="POST" onsubmit="return validarEmail()">
+                        <form id="form-pagar" action="php_scripts/pagar_compra.php" method="POST" onsubmit="return validacao_email()">
                             <!-- Este input vai receber o email via JS -->
                             <input type="hidden" id="email-hidden" name="email">
                             <button type="submit" class="botao pagar">Pagar</button>
@@ -153,42 +155,3 @@ try {
     </div>
 </body>
 </html>
-
-<script>
-function validarEmail() {
-    const emailInput = document.getElementById('email');
-    const emailHidden = document.getElementById('email-hidden');
-    const email = emailInput.value.trim();
-
-    //Verifica se o email não está vazio
-    if (email === '') {
-        alert('Por favor, introduza um email para prosseguir.');
-        return false; // Impede o submit
-    }
-
-    // Expressão regular simples para validar email
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    /*
-    ^[^\s@]+ → começa com pelo menos um caracter que não é espaço nem @
-
-    @ → tem de conter um @
-
-    [^\s@]+ → depois do @, pelo menos um caracter que não é espaço nem @
-
-    \. → tem de conter um ponto . (o \ é necessário para o ponto ser entendido como Escape Caracter)
-
-    [^\s@]+$ → pelo menos um caracter após o ponto, até ao fim da string
-    */
-
-    //Se o email não é válido
-    if (!emailValido.test(email)) {
-        alert('Por favor, introduza um email válido.');
-        return false; // Impede o submit
-    }
-
-    // Guarda o email no input hidden antes de submeter
-    emailHidden.value = email;
-    return true; // Permite o submit
-}
-</script>

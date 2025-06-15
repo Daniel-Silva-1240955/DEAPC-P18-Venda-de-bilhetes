@@ -1,4 +1,8 @@
 <?php
+
+    //Adicionar Popups de Erros de Adicionar ao carrinho
+
+
 /*echo "<pre>";
 print_r($_POST);
 echo "</pre>";
