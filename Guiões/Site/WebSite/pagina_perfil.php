@@ -5,7 +5,6 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php?auth=0');
     //die("Utilizador não autenticado. Por favor, inicie sessão.");
-    exit();
 }
 
 $user_id = $_SESSION['user_id'];
@@ -20,7 +19,8 @@ try {
     $row = $result->fetchArray(SQLITE3_ASSOC);
 
     if (!$row) {
-        die("Utilizador não encontrado.");
+      header('Location: index.php?auth=0');
+      //die("Utilizador não encontrado.");
     }
 
     $name = $row['nome'];
