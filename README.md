@@ -28,3 +28,5 @@ Teste Miguel credenciais automaticas
 Entrega Rodrigo
 
 Entrega Miguel
+
+Entrega Daniel
