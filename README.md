@@ -24,3 +24,5 @@ Teste Miguel credenciais automaticas
  Cliente - Após autenticação, consegue visualizar e comprar bilhetes
  Esta categoria dá ainda acesso a dados pessoais e histórico de bilhetes comprados
  Admin - Tem os privilégios anteriormente descritos, conseguindo ainda adicionar e remover bilhetes, alterar características dos bilhetes e adicionar e remover clientes
+
+Entrega Rodrigo
