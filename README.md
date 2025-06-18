@@ -26,3 +26,5 @@ Teste Miguel credenciais automaticas
  Admin - Tem os privilégios anteriormente descritos, conseguindo ainda adicionar e remover bilhetes, alterar características dos bilhetes e adicionar e remover clientes
 
 Entrega Rodrigo
+
+Entrega Miguel
