@@ -26,7 +26,7 @@
         <div id="popup" class="popup">
             <div class="popup-content">
                 <h2>Email ou Palavra-Passe incorretos</h2>
-                <a href="inicar_sessao.php">Tentar de Novo</a>
+                <a href="iniciar_sessao.php">Tentar de Novo</a>
             </div>
         </div>
     <?php endif; ?>
@@ -52,7 +52,7 @@
         </div>
     <?php endif; ?>
 
-    <a href="index.php" class="voltar" style="float: left;">⬅ Voltar</a>
+    
 
     <div class="fundo">
         <div class="conteudo">
@@ -65,6 +65,7 @@
             <a href="registar.php" class="Registar"> Registar </a>
         </div>
     </div>
+    <a href="index.php" class="voltar" style="float: left;">⬅ Voltar</a>
 
 </body>
 </html>

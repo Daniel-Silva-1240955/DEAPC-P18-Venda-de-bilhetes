@@ -34,57 +34,18 @@ h1
   font-size: 30px;
 }
 
-button
-{
-    background-color:greenyellow;
-    border: none;
-    padding: 10px;
-    width: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5%;
-}
-
-button:hover
-{
-    background-color:#5ac75a;
-}
-
 .conteudo
 {
     background-color: rgba(0, 0, 0, 0.836);
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: 10%;
     transform: translate(-50%, -50%);
     padding: 40px;
     border-radius: 8%;
     color: white;
     text-align: center;
     width: 300px;
-}
-
-.Registar
-{
-    color: #000000;   
-    background-color:greenyellow;
-    text-decoration: none;
-    margin-top: 10%;    
-    margin-bottom: 15%;
-    border: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 45px;
-    padding-right: 45px;
-    margin: 10%;    
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.Registar:hover
-{
-    background-color: #5ac75a;
 }
 
 .voltar
@@ -170,3 +131,40 @@ button.iniciar_sessao:hover,
   background-color: #3d566e;
 }
 
+.popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content a {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #34495e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.popup-content a:hover {
+    background-color: #3d566e;
+}
