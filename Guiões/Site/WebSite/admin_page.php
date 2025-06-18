@@ -186,8 +186,8 @@ while ($row = $resultUsers->fetchArray(SQLITE3_ASSOC)) {
         <input type="text" name="nome" placeholder="Nome do evento" required>
         <input type="text" name="morada" placeholder="Morada" required>
         <input type="date" name="dia" required>
-        <input type="number" name="preco" placeholder="Preço (€)" required>
-        <input type="number" name="limite" placeholder="Nº Máximo" required>
+        <input type="number" name="preco" placeholder="Preço (€)" min="0" required>
+        <input type="number" name="limite" placeholder="Nº Máximo" min="1" required>
         <button class="add" type="submit" name="adicionar">Adicionar</button>
     </form>
 

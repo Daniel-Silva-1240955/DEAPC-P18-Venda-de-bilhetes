@@ -25,7 +25,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     $quantidade = $row['quantidade'];
 
     // Buscar nome e preço atual do bilhete
-    $bilhete_stmt = $db->prepare("SELECT id,nome,morada,dia,preco,disponiveis FROM lista_bilhetes WHERE id = :id_bilhete");
+    $bilhete_stmt = $db->prepare("SELECT disponiveis FROM lista_bilhetes WHERE id = :id_bilhete");
     $bilhete_stmt->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
     $bilhete_info = $bilhete_stmt->execute()->fetchArray(SQLITE3_ASSOC);
 
@@ -33,10 +33,12 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
         //Se as informações do bilhete forem inválidas, salta este ciclo
         continue;
     }
+    
 
-    if ($quantidade>$disponiveis) {
+    if ($quantidade>$bilhete_info['disponiveis']) {
         //Se a quantidade pretendida é superior à disponivel
-        header("Location: ../carrinho.php?availbale=0");
+        header("Location: ../carrinho.php?available=0");
+        exit;
     }
 }
 

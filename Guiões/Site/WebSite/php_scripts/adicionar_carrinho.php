@@ -52,9 +52,9 @@ if ($quantidade > $bilhete['disponiveis']) {
 }
 
 
-/*
+
 // Obter os bilhetes do carrinho do utilizador
-$stmt = $db->prepare("SELECT * FROM carrinhos WHERE user_id = :user_id and id = :id_bilhete");
+$stmt = $db->prepare("SELECT * FROM carrinhos WHERE user_id = :user_id and id_bilhete = :id_bilhete");
 $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $stmt->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
 $result = $stmt->execute();
@@ -68,8 +68,7 @@ echo "</pre>";
 exit;*/
 
 
-/*
-//TESTE UPDATE OF CART QUANTITY
+
 if(!$bilhete_carrinho) {
 // Insere novo bilhete no carrinho
 $insert = $db->prepare("INSERT INTO carrinhos (user_id, id_bilhete, quantidade) VALUES (:user_id, :id_bilhete, :quantidade)");
@@ -79,22 +78,17 @@ $insert->bindValue(':quantidade', $quantidade, SQLITE3_INTEGER);
 $insert->execute();
 }
 else {
-    $update = $db->prepare("UPDATE carrinhos SET(quantidade) VALUES (:quantidade) WHERE user_id = :user_id, id = :id_bilhete");
+    $update = $db->prepare("UPDATE carrinhos SET quantidade =:quantidade_nova WHERE user_id = :user_id and id_bilhete = :id_bilhete");
     $update->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
     $update->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
-    $update->bindValue(':quantidade', $quantidade, SQLITE3_INTEGER);
+    $update->bindValue(':quantidade_nova',$bilhete_carrinho['quantidade']+$quantidade, SQLITE3_INTEGER);
     $update->execute();
-}*/
+    /*echo "<pre>";
+    print_r($bilhete_carrinho['quantidade']+$quantidade);
+    echo "</pre>";
+    exit;*/
 
-
-// Insere novo bilhete no carrinho
-$insert = $db->prepare("INSERT INTO carrinhos (user_id, id_bilhete, quantidade) VALUES (:user_id, :id_bilhete, :quantidade)");
-$insert->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
-$insert->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
-$insert->bindValue(':quantidade', $quantidade, SQLITE3_INTEGER);
-$insert->execute();
-
-//TODO: Adicionar funcionalidade de atualizar quantidade de item se este já se encontra no carrinho
+}
 
 //Redireciona para a página principal com mensagem de confirmação
 header("Location: ../index.php?adicionado=1");
