@@ -1,13 +1,9 @@
 <?php
-
-    //Adicionar Popups de Erros de Remoção do carrinho
-
-
 session_start();
 
+// Verifica se o utilizador está autenticado
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php?auth=0');
-    exit();
 }
 
 if (isset($_POST['id_bilhete'])) {
@@ -17,18 +13,20 @@ if (isset($_POST['id_bilhete'])) {
     try {
         $db = new SQLite3('../../DataBase/venda_bilhetes.db');
         
+        //Apaga bilhete do carrinho
         $stmt = $db->prepare('DELETE FROM carrinhos WHERE user_id = :user_id AND id_bilhete = :id_bilhete');
         $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
         $stmt->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
         $stmt->execute();
 
         header("Location: ../carrinho.php?removed=1");
-        exit();
 
     } catch (Exception $e) {
-        die("Erro ao remover item.");
+        //Erro de remoção do item do carrinho
+        header("Location: ../carrinho.php?removed=0");
     }
 } else {
-    die("Dados inválidos.");
+    //Dados de POST inválidos
+    header("Location: ../carrinho.php?data_error=1");
 }
 ?>

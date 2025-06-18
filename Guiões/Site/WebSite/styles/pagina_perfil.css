@@ -42,7 +42,7 @@
     margin: 0;
   }
 
-
+/*
   .edit-button {
       display: block;
       padding: 0.5rem 1rem;
@@ -52,7 +52,7 @@
       border-radius: 8px;
       transition: background-color 0.3s;
       text-align: center;
-      margin-bottom: 0px; /* <- Adiciona espaçamento por baixo do botão Editar */
+      margin-bottom: 0px; /* <- Adiciona espaçamento por baixo do botão Editar 
   }
 
   .edit-button:hover {
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.2rem;
       background-color: #34495e;
       border-radius: 8px;
-      width: 80%; /* ajusta a largura para ficar consistente com o Editar */
+      width: 80%; /* ajusta a largura para ficar consistente com o Editar 
       text-align: center;
       transition: 0.2s;
       font-size: 1rem;
@@ -75,7 +75,7 @@
 
   .back-button:hover {
       background-color: #3d566e;
-  }
+  }*/
 
   .main {
     flex-grow: 1;
@@ -119,7 +119,6 @@
     font-size: 18px;
   }
 
-  /* Estilo geral */
   .popup {
       position: fixed;
       top: 0; left: 0;
@@ -190,6 +189,7 @@
       cursor: pointer;
       transition: background-color 0.3s;
       text-decoration: none;
+      text-align: center;
   }
   button.popup-button {
     all: unset; /* Limpa todos os estilos nativos do botão */

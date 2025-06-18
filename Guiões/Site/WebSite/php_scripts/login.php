@@ -1,8 +1,4 @@
 <?php
-
-    //Adicionar Popups de Erros de Início de sessão
-
-
 //Este código recebe os dados de login e tenta iniciar sessão
 //Dá erro se não for possível iniciar sessão
 session_start();
@@ -12,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $palavrapasse = trim($_POST['palavrapasse']);
 
-    // Valida campos
+    // Valida se campos estão preenchidos
     if (empty($email) || empty($palavrapasse)) {
-        die("⚠️ Email e palavra-passe são obrigatórios.");
+        header("Location: ../iniciar_sessao.php?fields=0");
     }
 
     try {
@@ -30,14 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Iniciar sessão com o ID do utilizador
             $_SESSION['user_id'] = $user['user_id'];
             header("Location: ../index.php"); // Redireciona para a página principal
-            exit();
         } else {
-            echo "❌ Email ou palavra-passe incorretos.";
+            //Email ou pass incorretos
+            header("Location: ../iniciar_sessao.php?success=0");
         }
     } catch (Exception $e) {
-        echo "❌ Erro de base de dados: " . $e->getMessage();
+        header("Location: ../iniciar_sessao.php?database=0");
     }
 } else {
-    echo "⚠️ Método de acesso inválido.";
+    header("Location: ../iniciar_sessao.php?method=0");
 }
 ?>

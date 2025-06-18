@@ -1,9 +1,9 @@
 <?php
 session_start();
 
+// Verifica se o utilizador está autenticado
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php?auth=0');
-    exit();
 }
 
 $db = new SQLite3('../../DataBase/venda_bilhetes.db');
@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->execute()->fetchArray(SQLITE3_ASSOC);
 
     if (!$result) {
+        //Erro ao aceder à base de dados
         header("Location: ../pagina_perfil.php?editar=2&success=0");
-        exit();
     }
 
     // O utilizador alterou a password

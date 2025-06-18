@@ -1,8 +1,5 @@
 <?php
 
-    //Adicionar Popups de Erros de Registo
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
@@ -17,9 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "</pre>";
     */
 
-    // Verificação básica
-    if (empty($nome) || empty($email) || empty($palavrapasse) || empty($validade_cc)) {
-        die("⚠️ Todos os campos são obrigatórios.");
+    // Verificação básica de preenchimento de campos
+    if (empty($nome) || empty($email) || empty($palavrapasse) || empty($num_cc) || empty($validade_cc) || empty($cvv_cc)) {
+        header('Location: ../registar.php?fields=0');
+        //die("⚠️ Todos os campos são obrigatórios.");
     }
 
     try {
@@ -31,9 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $res = $check->execute();
 
         if ($res->fetchArray()) {
-            //Introduzir popup na página anterior
-            echo "⚠️ Este email já está registado.";
-            die('<br><a href="../iniciar_sessao.php">Ir para login</a>');
+            //Redireciona para popup a informar que o utilizador já existe
+            header('Location: ../registar.php?found=1');
         }
 
         // Hash da password
@@ -52,17 +49,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $stmt->execute();
 
         if ($result) {
-            //echo "✅ Utilizador registado com sucesso.";
-            //echo '<br><a href="iniciar_sessao.php">Ir para login</a>';
-            header("Location: ../iniciar_sessao.php"); // Redireciona para a página principal
+            // Redireciona para popup a informar que foi criado com sucesso
+            header("Location: ../registar.php?success=1"); 
         } else {
-            echo "❌ Falha ao registar utilizador.";
-            echo '<br><a href="../registar.php">Ir para registo</a>';
+            // Redireciona para popup a informar que não foi criado
+            header("Location: ../registar.php?success=0");
         }
     } catch (Exception $e) {
-        echo "❌ Erro de base de dados: " . $e->getMessage();
+        // Redireciona para popup a informar que ocorreu um erro de base de dados
+        header("Location: ../registar.php?database=0");
     }
 } else {
-    echo "⚠️ Método inválido.";
+    // Redireciona para popup a informar que ocorreu um erro de comunicação
+    header("Location: ../registar.php?method=0");
 }
 ?>

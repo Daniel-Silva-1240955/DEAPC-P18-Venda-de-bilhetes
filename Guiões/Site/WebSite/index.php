@@ -34,11 +34,54 @@ $bilhetes = $db->query("SELECT * FROM lista_bilhetes");
             </div>
         </div>
     <?php endif; ?>
+
     <!-- Pop-up Bilhete adicionado ao carrinho -->
     <?php if (isset($_GET['adicionado']) && $_GET['adicionado'] == '1'): ?>
         <div id="popup" class="popup">
             <div class="popup-content">
                 <h2>Bilhete adicionado ao carrinho</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up Erro de Post -->
+    <?php if (isset($_GET['post']) && $_GET['post'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro ao adicionar bilhete ao carrinho</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+    
+    <!-- Pop-up Bilhete Esgotado -->
+    <?php if (isset($_GET['available']) && $_GET['available'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Bilhete Indisponível</h2>
+                <h2>Pedimos Desculpa pelo Incómodo</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up Bilhete não encontrado -->
+    <?php if (isset($_GET['found']) && $_GET['found'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Bilhete não encontrado</h2>
+                <h2>Pedimos Desculpa pelo Incómodo</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up falha na base de dados  -->
+    <?php if (isset($_GET['database']) && $_GET['database'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Falha na Base de Dados. Contacte o Admin</h2>
                 <a href="index.php">Continuar</a>
             </div>
         </div>

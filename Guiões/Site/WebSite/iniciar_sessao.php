@@ -11,6 +11,47 @@
 </head>
 
 <body>
+    <!-- Pop-up Campos por preencher -->
+    <?php if (isset($_GET['fields']) && $_GET['fields'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro! Preencha os campos todos.</h2>
+                <a href="iniciar_sessao.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up falha ao iniciar sessão  -->
+    <?php if (isset($_GET['success']) && $_GET['success'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Email ou Palavra-Passe incorretos</h2>
+                <a href="inicar_sessao.php">Tentar de Novo</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+
+    <!-- Pop-up falha na base de dados  -->
+    <?php if (isset($_GET['database']) && $_GET['database'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Falha na Base de Dados. Contacte o Admin</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up falha ao aceder ao signup.php  -->
+    <?php if (isset($_GET['method']) && $_GET['method'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro de ficheiro. Contacte o Admin</h2>
+                <a href="index.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <a href="index.php" class="voltar" style="float: left;">⬅ Voltar</a>
 
     <div class="fundo">

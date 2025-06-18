@@ -41,7 +41,8 @@ try {
     }
 
 } catch (Exception $e) {
-    echo "Erro ao aceder à base de dados: " . $e->getMessage();
+    header('Location: index.php?database=0');
+    //echo "Erro ao aceder à base de dados: " . $e->getMessage();
 }
 ?>
 
@@ -60,22 +61,25 @@ try {
         <div class="popup-content">
             <h2>Editar Dados</h2>
             <form action="php_scripts/edit_profile.php" method="POST" onsubmit="return validacao();">
-                <input name="password" type="password" id="password" value="********" required>
+              <h4> Palavra-Passe </h4>  
+              <input name="password" type="password" id="password" value="********" required>
 
-                <!-- Campo de número de cartão -->
-                <input name="num_cc" type="tel" maxlength="16" value="<?= htmlspecialchars($num_cc); ?>" required>
+              <!-- Campo de número de cartão -->
+              <h4> Número do Cartão </h4> 
+              <input name="num_cc" type="tel" maxlength="16" value="<?= htmlspecialchars($num_cc); ?>" required>
 
-                <!-- Validade e CVV -->
-                <div class="validadeCVV">
-                    <input name="validade_cc" class="data_validade" type="month" value="<?= htmlspecialchars($val_cc); ?>" required>
-                    <input name="cvv_cc" class="cvv" type="text" value="<?= htmlspecialchars($cvv_cc); ?>" maxlength="3" required>
-                </div>
+              <!-- Validade e CVV -->
+              <h4> Validade e CVV </h4> 
+              <div class="validadeCVV">
+                  <input name="validade_cc" class="data_validade" type="month" value="<?= htmlspecialchars($val_cc); ?>" required>
+                  <input name="cvv_cc" class="cvv" type="text" value="<?= htmlspecialchars($cvv_cc); ?>" maxlength="3" required>
+              </div>
 
-                <!-- Bloco de botões -->
-                <div class="popup-buttons">
-                    <button type="submit" class="popup-button">Confirmar</button>
-                    <a href="pagina_perfil.php" class="popup-button">Cancelar</a>
-                </div>
+              <!-- Bloco de botões -->
+              <div class="popup-buttons">
+                  <button type="submit" class="popup-button">Confirmar</button>
+                  <a href="pagina_perfil.php" class="popup-button">Cancelar</a>
+              </div>
             </form>
         </div>
     </div>
@@ -125,11 +129,12 @@ try {
             <label>CVV</label>
             <p><?= htmlspecialchars($cvv_cc) ?></p>
         </div>
-        <a href="pagina_perfil.php?editar=1" class="edit-button">📝 Editar</a>
+        
     </div>
+    <a href="pagina_perfil.php?editar=1" class="popup-button">📝 Editar</a>
 
     <!-- Bloco dos botões -->    
-    <a href="index.php" class="back-button">⬅ Voltar</a>
+    <a href="index.php" class="popup-button">⬅ Voltar</a>
 </div>
 
 <div class="main">

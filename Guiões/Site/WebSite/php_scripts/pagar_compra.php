@@ -5,7 +5,6 @@ session_start();
 //Verifica se o utilizador tem sessão inciada (redundante)
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php?auth=0');
-    exit();
 }
 
 $db = new SQLite3('../../DataBase/venda_bilhetes.db');
@@ -13,11 +12,37 @@ $db = new SQLite3('../../DataBase/venda_bilhetes.db');
 // Obter o ID do utilizador da sessão
 $user_id = $_SESSION['user_id'];
 
+
 // Obter os bilhetes do carrinho do utilizador
 $stmt = $db->prepare("SELECT id_bilhete, quantidade FROM carrinhos WHERE user_id = :user_id");
 $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $result = $stmt->execute();
 
+
+//Verificar se todos os bilhetes estão disponíveis nas quantidades necessárias
+while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    $id_bilhete = $row['id_bilhete'];
+    $quantidade = $row['quantidade'];
+
+    // Buscar nome e preço atual do bilhete
+    $bilhete_stmt = $db->prepare("SELECT id,nome,morada,dia,preco,disponiveis FROM lista_bilhetes WHERE id = :id_bilhete");
+    $bilhete_stmt->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
+    $bilhete_info = $bilhete_stmt->execute()->fetchArray(SQLITE3_ASSOC);
+
+    if (!$bilhete_info) {
+        //Se as informações do bilhete forem inválidas, salta este ciclo
+        continue;
+    }
+
+    if ($quantidade>$disponiveis) {
+        //Se a quantidade pretendida é superior à disponivel
+        header("Location: ../carrinho.php?availbale=0");
+    }
+}
+
+
+//Se está neste passo do programa é porque não houve redirect e todos os 
+// bilhetes estão disponíveis nas quantidades necessárias
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     $id_bilhete = $row['id_bilhete'];
     $quantidade = $row['quantidade'];
@@ -26,14 +51,20 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     print_r($id_bilhete);
     echo "</pre>";
     */
+
     // Buscar nome e preço atual do bilhete
-    $bilhete_stmt = $db->prepare("SELECT id,nome,morada,dia,preco FROM lista_bilhetes WHERE id = :id_bilhete");
+    $bilhete_stmt = $db->prepare("SELECT id,nome,morada,dia,preco,disponiveis FROM lista_bilhetes WHERE id = :id_bilhete");
     $bilhete_stmt->bindValue(':id_bilhete', $id_bilhete, SQLITE3_INTEGER);
     $bilhete_info = $bilhete_stmt->execute()->fetchArray(SQLITE3_ASSOC);
 
     if (!$bilhete_info) {
-        //Se as informações do bilhete forem inválidas, continua
+        //Se as informações do bilhete forem inválidas, salta este ciclo
         continue;
+    }
+
+    if ($quantidade>$disponiveis) {
+        //Se a quantidade pretendida é superior à disponivel
+        header("Location: ../carrinho.php?availbale=0");
     }
 
     $nome = $bilhete_info['nome'];
@@ -70,7 +101,6 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 //Simula um While Else
 if (!$row = $result->fetchArray(SQLITE3_ASSOC)) {
     header("Location: ../carrinho.php?success=0");
-    exit();
 }
 
 // Limpar o carrinho do utilizador
@@ -79,5 +109,4 @@ $delete->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $delete->execute();
 
 header("Location: ../carrinho.php?success=1");
-exit();
 ?>

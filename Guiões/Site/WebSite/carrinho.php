@@ -1,12 +1,11 @@
 <?php
 session_start();
 
+// Verifica se o utilizador está autenticado
 if (!isset($_SESSION['user_id'])) {
     //Abre popup a dizer que não tem sessão iniciada
     //Carregar no botão faz redirect para a página de login
     header('Location: index.php?auth=0');
-    //die("Utilizador não autenticado. Por favor, inicie sessão.");
-    exit();
 }
 $user_id = $_SESSION['user_id'];
 
@@ -44,7 +43,7 @@ try {
 </head>
 
 <body>
-    <!-- Pop-up Pagar Compra  Carrinho Vazio -->
+    <!-- Pop-up Pagar Compra Carrinho Vazio -->
     <?php if (isset($_GET['success']) && $_GET['success'] == '0'): ?>
         <div id="popup" class="popup">
             <div class="popup-content">
@@ -53,6 +52,7 @@ try {
             </div>
         </div>
     <?php endif; ?>
+
     <!-- Pop-up Pagar Compra sucesso -->
     <?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
         <div id="popup" class="popup">
@@ -63,11 +63,41 @@ try {
         </div>
     <?php endif; ?>
 
+    <!-- Pop-up Sem bilhetes disponiveis -->
+    <?php if (isset($_GET['available']) && $_GET['available'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Existem bilhetes indisponíveis</h2>
+                <a href="carrinho.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <!-- Pop-up Bilhete Removido -->
     <?php if (isset($_GET['removed']) && $_GET['removed'] == '1'): ?>
         <div id="popup" class="popup">
             <div class="popup-content">
                 <h2>Bilhete removido com Sucesso!</h2>
+                <a href="carrinho.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up Erro Remoção Bilhete -->
+    <?php if (isset($_GET['removed']) && $_GET['removed'] == '0'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro ao remover bilhete. Contacte o Admin</h2>
+                <a href="carrinho.php">Continuar</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pop-up Erro Dados Bilhete -->
+    <?php if (isset($_GET['data_error']) && $_GET['data_error'] == '1'): ?>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Erro ao remover bilhete. Contacte o Admin</h2>
                 <a href="carrinho.php">Continuar</a>
             </div>
         </div>
